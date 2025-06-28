@@ -45,3 +45,6 @@ pipeline:
                     command: mvn quarkus:dev
                     delegateSelectors:
                       - docker-delegate-quarkus
+          platform:
+            os: Windows
+            arch: Amd64
