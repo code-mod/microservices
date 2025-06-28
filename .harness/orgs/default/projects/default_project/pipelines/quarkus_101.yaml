@@ -1,0 +1,46 @@
+pipeline:
+  name: quarkus_101
+  identifier: quarkus_101
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: raptor
+        build: <+input>
+  stages:
+    - stage:
+        name: dev
+        identifier: dev
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Windows
+            arch: Arm64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: compile
+                  identifier: compile
+                  spec:
+                    shell: Sh
+                    command: mvn clean compile
+              - step:
+                  type: Run
+                  name: start_quarkus_hello
+                  identifier: start_quarkus_hello
+                  spec:
+                    shell: Sh
+                    command: mvn quarkus:dev
