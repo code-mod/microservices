@@ -38,7 +38,7 @@ pipeline:
                     shell: Sh
                     command: mvn clean compile
                     delegateSelectors:
-                      - docker-delegate
+                      - docker-delegate-quarkus
               - step:
                   type: Run
                   name: start_quarkus_hello
@@ -47,4 +47,4 @@ pipeline:
                     shell: Sh
                     command: mvn quarkus:dev
                     delegateSelectors:
-                      - docker-delegate
+                      - docker-delegate-quarkus
