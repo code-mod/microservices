@@ -9,7 +9,7 @@ import org.jboss.logging.Logger;
 @Path("/beta")
 public class QuarkusGateway {
     /*** ---- members --- */
-    private Logger logger = Logger.getLogger(QuarkusGateway.class);
+    private final Logger logger = Logger.getLogger(QuarkusGateway.class);
 
     public QuarkusGateway() {
         super();
